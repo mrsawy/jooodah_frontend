@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*  */
+@import url(../node_modules/semantic-ui-css/semantic.min.css);
+
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 1000 */
+
+.cairo-ar {
+  font-family: "Cairo", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 700 !important;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+th.css-30mx3m-MuiTableCell-root:nth-child(6) {
+  display: flex !important;
+}
+
+th.css-30mx3m-MuiTableCell-root:nth-child(6) span {
+  margin: auto;
+}
+th.css-30mx3m-MuiTableCell-root:nth-child(7) {
+  text-align: center;
+}
+th.css-30mx3m-MuiTableCell-root:nth-child(5),
+th.css-30mx3m-MuiTableCell-root:nth-child(8) {
+  text-align: center;
+}
+.css-1hxuhbc-MuiTableCell-root {
+  padding-left: 20px !important;
+}
+
+.ui.items > .item .extra.flex {
+  display: flex !important;
+}
+
+.ui.items > .item .extra.flex:after {
+  content: unset;
+}
+
+.instructionModalWidth {
+  width: 60% !important;
+}
+
+@media screen and (max-width: 600px) {
+  .instructionModalWidth {
+    width: 95% !important;
+  }
+}
+
+body[dir="rtl"] input {
+  direction: rtl;
+  text-align: right !important;
+}
+body[dir="rtl"] *:not(i) {
+  font-family: "Cairo", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+.numiricPhone input {
+  padding-block: 10px;
+}
+
+.p-dropdown-label.p-inputtext.p-placeholder span {
+  color: #c2c1c1;
+}
+
+/* .p-dropdown-filter-container svg{
+  display: none;
+} */
+
+.dir-ltr {
+  direction: ltr !important;
+}
+
+.dir-rtl {
+  direction: rtl !important;
+}
+
+.rtl {
+  direction: rtl !important;
+}
+
+
+
+.unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+
+
+.unselectable * {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
