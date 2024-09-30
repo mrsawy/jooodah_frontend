@@ -37,6 +37,7 @@ const Quiz = ({ data, countdownTime, endQuiz, onQuite }) => {
 
   let currentLang = i18n.language;
 
+
   let screenWidth = window.innerWidth;
 
   const dispatch = useDispatch();
@@ -120,6 +121,8 @@ const Quiz = ({ data, countdownTime, endQuiz, onQuite }) => {
     setCurrentQuestion(currentQuestions[newIndex]);
     setCurrQState(currentQuestions[newIndex]);
     setQuestionIndex(newIndex);
+    changeLangBasedOnQuestion(newIndex)
+
   };
 
   const handleSkip = (e) => {
@@ -129,8 +132,14 @@ const Quiz = ({ data, countdownTime, endQuiz, onQuite }) => {
     setUserSlectedAns((p) => p.filter((ele, i) => ele?._id != currQState?._id));
 
     setCurrentQuestion(currentQuestions[newIndex]);
+    // console.log(`q=====>`,currentQuestions[newIndex])
+    changeLangBasedOnQuestion(newIndex)
+
+
     setQuestionIndex(newIndex);
     setCurrQState(currentQuestions[newIndex]);
+
+
   };
   const handlePrev = () => {
     let newIndex = questionIndex - 1;
@@ -140,6 +149,8 @@ const Quiz = ({ data, countdownTime, endQuiz, onQuite }) => {
       setQuestionIndex(newIndex);
       setCurrQState(currentQuestions[newIndex]);
     }
+    changeLangBasedOnQuestion(newIndex)
+
   };
   const timeOver = (timeTaken) => {
     return endQuiz(
@@ -189,6 +200,29 @@ const Quiz = ({ data, countdownTime, endQuiz, onQuite }) => {
       }
     });
   };
+
+
+const changeLangBasedOnQuestion = (newIndex) => {
+  const question = currentQuestions[newIndex].question;
+  const firstFiveChars = question.slice(0, 5);
+  const isEnglish =/^[A-Za-z\s]+$/.test(firstFiveChars);
+
+
+  console.log({
+    question,
+firstFiveChars,
+isEnglish
+  })
+  
+  if(isEnglish){
+      i18n.changeLanguage(`en`);
+  }else{
+    i18n.changeLanguage(`ar`);
+  }
+}
+useEffect(()=>{
+  changeLangBasedOnQuestion(0)
+},[])
 
   // }
   return (
@@ -269,7 +303,6 @@ const Quiz = ({ data, countdownTime, endQuiz, onQuite }) => {
                       try {
                         const letter = getLetter(i, currentLang);
                         const decodedOption = option ? option : ``;
-
                         return (
                           <Menu.Item
                             key={decodedOption}

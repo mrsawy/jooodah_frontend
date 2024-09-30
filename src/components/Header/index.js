@@ -21,7 +21,8 @@ const Header = ({ isQuizStarted, isQuite, isQuizCompleted }) => {
         className={`flex justify-center items-center ${currLang == `en` ? `ml-auto mr-9` : `mr-auto ml-5`} mb-4 gap-8 mt-4 `}
       >
         <InstructionModal isQuizStarted={isQuizStarted} className="m-auto" />
-        {!isQuizStarted && !isQuite && !isQuizCompleted && <LanguageSwitcher />}
+        {/* {!isQuizStarted && !isQuite && !isQuizCompleted && <LanguageSwitcher />} */}
+        <LanguageSwitcher />
       </div>
     </Menu>
   );

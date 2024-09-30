@@ -2,9 +2,13 @@
 // export const uploads_url = `http://localhost:4000/uploads/`;
 // export const api_url = `http://localhost:4000/api`;
 
-export const base_url = `https://convince.jooodah.com/`;
-export const uploads_url = `https://convince.jooodah.com/uploads/`;
-export const api_url = `https://convince.jooodah.com/api`;
+export const base_url = `https://accounting.jooodah.com/`;
+export const uploads_url = `https://accounting.jooodah.com/uploads/`;
+export const api_url = `https://accounting.jooodah.com/api`;
+
+// export const base_url = `https://convince.jooodah.com/`;
+// export const uploads_url = `https://convince.jooodah.com/uploads/`;
+// export const api_url = `https://convince.jooodah.com/api`;
 
 // //
 // export const base_url = `https://dashboard.jooodah.com`;

@@ -54,7 +54,8 @@ export default function BasicDemo({ className, isQuizStarted }) {
         onHide={() => setVisible(false)}
         className="  w-full md:w-3/5 instructionModalWidth "
       >
-        {!isQuizStarted && <LanguageSwitcher className=" w-44 mx-auto mb-7" />}
+        {/* {!isQuizStarted && <LanguageSwitcher className=" w-44 mx-auto mb-7" />} */}
+        <LanguageSwitcher className=" w-44 mx-auto mb-7" />
         <div dangerouslySetInnerHTML={{ __html: text }} />
       </Dialog>
     </div>

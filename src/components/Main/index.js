@@ -28,7 +28,9 @@ const Main = ({ startQuiz }) => {
   const [logo, setLogo] = useState(``);
   const [age, setAge] = useState(20);
   const [captchaIsChanged, setCaptchaIsChanged] = useState(false);
-  const [exp, setExp] = useState(1);
+  const [exp, setExp] = useState(``);
+  const [relatedExperience, setRelatedExperience] = useState(``);
+
   const [eduLevel, setEduLevel] = useState("Preparatory -  إعدادية");
 
   function onReCAPTCHAChange(value) {
@@ -70,7 +72,6 @@ const Main = ({ startQuiz }) => {
   const [gender, setGender] = useState(``);
   const [academicSpecialization, setAcademicSpecialization] = useState(``);
   const [countryOfResidence, setCountryOfResidence] = useState(``);
-  const [relatedExperience, setRelatedExperience] = useState(``);
   //
 
   const [email, setEmail] = useState(null);
@@ -202,6 +203,16 @@ const Main = ({ startQuiz }) => {
       ]);
     }
   }, [currentLevel]);
+
+  useEffect(() => {
+    // console.log({ levels });
+    dispatch(
+      setLevel({
+        id: levels[0]?._id,
+        name: `${levels[0]?.name_en}-${levels[0]?.name_ar}`,
+      })
+    );
+  }, []);
 
   //
   return (
@@ -349,7 +360,7 @@ const Main = ({ startQuiz }) => {
               </div>
               <Divider />
               {/* / */}
-              {/* <Item.Meta>
+              <Item.Meta>
                 <div className=" flex flex-col lg:flex-row lg:flex-nowrap gap-10">
                   <div className="w-full">
                     <p className="text-zinc-900">{t(`Please Choose Your Related Experience`)}</p>
@@ -384,7 +395,7 @@ const Main = ({ startQuiz }) => {
                     />
                   </div>
                 </div>
-              </Item.Meta> */}
+              </Item.Meta>
               <Divider />
               <div className=" flex flex-col lg:flex-row lg:flex-nowrap gap-10">
                 <div className="w-full">
@@ -402,6 +413,22 @@ const Main = ({ startQuiz }) => {
                   />
                 </div>
                 <div className="w-full">
+                  <p>{t(`Please Choose Your age`)}</p>
+                  <Dropdown
+                    fluid
+                    selection
+                    name="age"
+                    placeholder={t("Select your age")}
+                    header={t("Select your age")}
+                    options={ages}
+                    value={age}
+                    onChange={(_, e) => {
+                      setAge(e?.value);
+                    }}
+                    disabled={processing}
+                  />
+                </div>
+                {/* <div className="w-full">
                   <p>{t(`Please_select_the_language_of_the_exam`)}</p>
                   <Dropdown
                     fluid
@@ -421,28 +448,13 @@ const Main = ({ startQuiz }) => {
                     }}
                     disabled={processing}
                   />
-                </div>
+                </div> */}
               </div>
               <Divider />
 
               <div className=" flex flex-col lg:flex-row lg:flex-nowrap gap-10">
-                <div className="w-full">
-                  <p>{t(`Please Choose Your age`)}</p>
-                  <Dropdown
-                    fluid
-                    selection
-                    name="age"
-                    placeholder={t("Select your age")}
-                    header={t("Select your age")}
-                    options={ages}
-                    value={age}
-                    onChange={(_, e) => {
-                      setAge(e?.value);
-                    }}
-                    disabled={processing}
-                  />
-                </div>
-                <div className="w-full">
+                
+                <div className="w-full border-red-200">
                   <ReCAPTCHA
                     ref={(r) => setCaptchaRef(r)}
                     sitekey="6LcRtKQpAAAAAA2gfaEUKIn6AQoj-GPVQk4wgNyH"
